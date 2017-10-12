@@ -44,12 +44,19 @@ define([
           cache: false,
           delay: 250,
           processResults: function (response, params) {
+
             var receivedData = [];
+            var prependData = undefined;
+            var text = '';
 
             _.each(response.data, function (eachData) {
+              if(self.prependString) {
+                prependData = eachData[self.prependString];
+                text = '[' + prependData + '] ';
+              }
               receivedData.push({
-                id: eachData._id,
-                text: eachData[listObject.shownValue]
+                id: eachData[listObject.id],
+                text: text + eachData[listObject.text]
               });
             });
 
