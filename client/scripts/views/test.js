@@ -30,11 +30,13 @@ define([
       this.$el.html(this.template());
 
       this.getGroup();
+
+      this.setGroup();
     },
 
     getGroup: function () {
       var select2Options = {
-        dropDownId: '#group',
+        dropDownSelector: '#group',
         placeholder: 'Select a product group',
         url: '/get_groups',
         method: 'POST',
@@ -62,6 +64,16 @@ define([
         var info = 'Id: ' + group.id;
         $('#selected-group-info').text(info);
       }
+    },
+
+    setGroup: function () {
+      var selectModule = Select2Module;
+
+      selectModule.loadPreviouslySelectedData({
+        dropDownSelector: '#auto-selected-group',
+        id: '59ca2c270176f03880348e7d',
+        text: 'Sugar'
+      });
     }
 
   });
