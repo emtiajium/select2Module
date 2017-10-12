@@ -19,7 +19,9 @@ define([
 
       var self = this;
 
-      $(listObject.dropDownId).select2({
+      $(listObject.dropDownSelector).empty();
+
+      $(listObject.dropDownSelector).select2({
         placeholder: listObject.placeholder,
         allowClear: true,
         minimumInputLength: 0,
@@ -82,16 +84,8 @@ define([
      */
 
     loadPreviouslySelectedData: function (listObject) {
-      /**
-       * before setting, empty it
-       * added after found a bug in #collection
-       * after setting an invoice, customer is also set
-       * then set another invoice [which's customer is not same as previous one]
-       * doesn't reset customer
-       * `Note: No user interaction with that field`
-       */
-      $(listObject.dropDownId).empty();
-      $(listObject.dropDownId).select2({
+      $(listObject.dropDownSelector).empty();
+      $(listObject.dropDownSelector).select2({
         width: '100%',
         allowClear: true,
         placeholder: listObject.text,
@@ -106,8 +100,8 @@ define([
      */
 
     loadFewData: function (listObject) {
-      $(listObject.dropDownId).empty();
-      $(listObject.dropDownId).select2({
+      $(listObject.dropDownSelector).empty();
+      $(listObject.dropDownSelector).select2({
         width: '100%',
         allowClear: false,
         data: listObject.data
