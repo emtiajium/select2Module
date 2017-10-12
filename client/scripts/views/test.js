@@ -32,6 +32,8 @@ define([
       this.getGroup();
 
       this.setGroup();
+
+      this.setFewData();
     },
 
     getGroup: function () {
@@ -73,6 +75,17 @@ define([
         dropDownSelector: '#auto-selected-group',
         id: '59ca2c270176f03880348e7d',
         text: 'Sugar'
+      });
+    },
+
+    setFewData: function () {
+      Select2Module.loadFewData({
+        dropDownSelector: '#few-data',
+        data: [
+          {id: '1', text: 'Male'},
+          {id: '2', text: 'Female'},
+          {id: '3', text: 'Other'}
+        ]
       });
     }
 
