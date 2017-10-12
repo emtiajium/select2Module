@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "engines": {
+    "node": ">=4"
+  },
+  "dependencies": {
+    "express": "latest",
+    "path": "latest"
+  }
+}

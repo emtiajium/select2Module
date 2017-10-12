@@ -1,0 +1,16 @@
+{
+  "name": "select2Module",
+  "private": true,
+  "dependencies": {
+    "jquery": "latest",
+    "backbone": "latest",
+    "underscore": "latest",
+    "requirejs": "latest",
+    "requirejs-text": "latest",
+    "bootstrap": "latest",
+    "modernizr": "latest",
+    "select2": "latest",
+    "jquery-ui": "latest",
+    "tether": "latest"
+  }
+}
