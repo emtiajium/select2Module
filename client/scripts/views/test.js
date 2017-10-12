@@ -20,7 +20,9 @@ define([
 
     className: '',
 
-    events: {},
+    events: {
+      'select2:select #group': 'getSelectedInfo'
+    },
 
     initialize: function () {},
 
@@ -38,13 +40,28 @@ define([
         method: 'POST',
         columns: [
           { data: '_id' },
-          { data: 'name' }
+          { data: 'name' },
+          { data: 'code' }
         ],
         orderBy: 1,
-        shownValue: 'name'
+        text: 'name',
+        id: 'code'
       };
 
-      Select2Module.loadData(select2Options);
+      var selectModule = Select2Module;
+
+      selectModule.prependString = 'code';
+
+      selectModule.loadData(select2Options);
+    },
+
+    getSelectedInfo: function () {
+      var group = $('#group').select2('data')[0];
+
+      if(group !== undefined) {
+        var info = 'Id: ' + group.id;
+        $('#selected-group-info').text(info);
+      }
     }
 
   });
